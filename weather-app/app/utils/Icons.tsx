@@ -18,6 +18,7 @@ import {
   UsersRound,
   CalendarDays,
   SunDim,
+  CloudLightning
 } from "lucide-react";
 
 
@@ -40,3 +41,4 @@ export const eye = <Eye size={15} />;
 export const people = <UsersRound size={15} />;
 export const calender = <CalendarDays size={15} />;
 export const sun = <SunDim size={15} />;
+export const thunder = <CloudLightning size={15}/>
