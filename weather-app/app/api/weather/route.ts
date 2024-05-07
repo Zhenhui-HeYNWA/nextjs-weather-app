@@ -5,9 +5,9 @@ export async function GET (req:NextRequest){
   try {
    const lat = -37.814
    const lon = 144.97
-   const apikey = process.env.OPENWEATHERMAP_API_KEY
+   const apiKey = process.env.OPENWEATHERMAP_API_KEY
 
-   const url =`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}`
+   const url =`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
     
    
     

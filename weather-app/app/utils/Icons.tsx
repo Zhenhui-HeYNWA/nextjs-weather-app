@@ -18,7 +18,10 @@ import {
   UsersRound,
   CalendarDays,
   SunDim,
-  CloudLightning
+  CloudLightning,
+  ThumbsUp,
+  ThumbsDown 
+
 } from "lucide-react";
 
 
@@ -42,3 +45,5 @@ export const people = <UsersRound size={15} />;
 export const calender = <CalendarDays size={15} />;
 export const sun = <SunDim size={15} />;
 export const thunder = <CloudLightning size={15}/>
+export const good = <ThumbsUp size={17}/>
+export const bad = <ThumbsDown  size={17}/>
