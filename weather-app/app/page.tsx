@@ -10,7 +10,9 @@ export default function Home() {
         <div className="flex flex-col gap-4 w-full min-w-[18rem] md:w-[35rem]">
           <Temperature/>
         </div>
-        <div className="flex fel-col"></div>
+        <div className="flex fel-col">
+          <div className="instruments"></div>
+        </div>
       </div>
     </main>
   );
