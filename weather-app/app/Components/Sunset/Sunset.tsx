@@ -40,7 +40,7 @@ function Sunset() {
      dark:bg-dark-grey shadow-sm dark:shadow-none'>
         <div className="top flex flex-row justify-between items-center text-center">
          <h2 className='flex items-center gap-2 font-medium'>
-        {sunriseLogo}sunrise
+        {sunriseLogo}Sunrise
           </h2>
           <p className=' text-xl '>
          {sunriseTime}
@@ -53,7 +53,7 @@ function Sunset() {
 
           <div className="top pt-6 flex flex-row justify-between items-center text-center">
           <h2 className='flex items-center gap-2 font-medium'>
-        {sunsetLogo}sunset
+        {sunsetLogo}Sunset
           </h2>
           <p className=' text-xl '>
          {sunsetTime}

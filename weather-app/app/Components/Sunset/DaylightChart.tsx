@@ -9,10 +9,14 @@ import {
   ReferenceDot,
   Tooltip,
   ResponsiveContainer,
-  TooltipProps
+  TooltipProps,
+  
+
 } from 'recharts';
 import { useGlobalContext } from '@/app/context/globalContext';
 import { unixToTime } from '@/app/utils/misc';
+import { sun } from '@/app/utils/Icons';
+
 
 function DaylightChart() {
   const { forecast } = useGlobalContext();
@@ -29,13 +33,13 @@ function DaylightChart() {
     return moment1.add(diff / 2, 'minutes').format('HH:mm');
   };
 
-  const midpointTime = calculateMidpointTime(sunriseTime, sunsetTime);
+  const midDay = calculateMidpointTime(sunriseTime, sunsetTime);
 
   // 数据集，包括时间和对应的值
   const data = [
     { time: '00:00', value: -1, name: "Midnight" }, // 代表午夜
     { time: sunriseTime, value: 0, name: "Sunrise" }, // 假设日出时间
-    { time: midpointTime, value: 2, name: "Midpoint" }, // 中午时间
+    { time: midDay, value: 2, name: "MidDay" }, // 中午时间
     { time: sunsetTime, value: 0, name: "Sunset" }, // 假设日落时间
     { time: '23:59', value: -1, name: "Midnight" } // 第二天午夜
   ];
@@ -86,6 +90,7 @@ function DaylightChart() {
     return null;
   };
 
+ 
   // `DaylightChart` 组件用于创建显示特定一天日照时间的图表
   const [currentTimeInMinutes, setCurrentTimeInMinutes] = useState(getCurrentTimeInMinutes());
   const [currentValue, setCurrentValue] = useState(getCurrentValue());
@@ -147,15 +152,12 @@ function DaylightChart() {
           x={currentTimeInMinutes}
           y={currentValue}
           r={5}
-          fill="gray"
+          fill="#EA6E4A"
           stroke="white"
           strokeWidth={2}
-          label={{
-            position: 'bottom',
-            value: moment().format('HH:mm'),
-            style: { fontSize: '12px' }
-          }}
-        />
+          
+        /> 
+         
       </AreaChart>
     </ResponsiveContainer>
   );

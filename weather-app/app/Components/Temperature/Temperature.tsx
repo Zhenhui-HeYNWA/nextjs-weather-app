@@ -11,7 +11,8 @@ function Temperature() {
   // state for current time 
   const [localTime , setLocalTime] = useState<string>('');
   const [currentDay, setCurrentDay] = useState<string>('');
-
+   
+    
   // useEffect hook to get current time update
   useEffect(()=>{
     const interval = setInterval(()=>{
@@ -72,10 +73,14 @@ function Temperature() {
           <span>{getIcon()}</span>
           <p className='pt-2 capitalize text-lg font-medium'>{description}</p>
         </div>
+        <div className=' justify-between'>
         <p className='flex items-center gap-2'>
-          <span>Low: {minTemp}°</span>
-          <span>High: {maxTemp}°</span>
+          <span>L: {minTemp}°</span>
+          <span>H: {maxTemp}°</span>
+          <span>Feel like:</span>
         </p>
+        
+        </div>
       </div>
     </div>
   )
