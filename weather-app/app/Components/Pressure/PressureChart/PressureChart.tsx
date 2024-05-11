@@ -39,8 +39,8 @@ export function PressureChart(props: ArcedProps) {
         return (
           <React.Fragment key={`tick-group-${angle}`}>
             <line
-              className="stroke-gray-700"
-              strokeWidth={1}
+              className="stroke-gray-700 "
+              strokeWidth={2}
               {...gauge.getTickProps({ angle, length: showText ? 16 : 10 })}
             />
             {showText && (

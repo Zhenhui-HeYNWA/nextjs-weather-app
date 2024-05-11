@@ -1,7 +1,7 @@
 'use client'
 
 import { useGlobalContext } from '@/app/context/globalContext'
-import { clearSky, cloudy, drizzleIcon, rain, snow, thunder } from '@/app/utils/Icons';
+import { clearSky, cloudy, drizzleIcon, rain, snow, thunder,mist } from '@/app/utils/Icons';
 import { kelvinToCelsius } from '@/app/utils/misc';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -25,7 +25,7 @@ function DailyForecast() {
     return forecast.dt_txt.startsWith(todayString)
   });
 
-  console.log(todaysForecast);
+
   
 
   const {main: weatherMain} = weather[0]
@@ -44,8 +44,10 @@ function DailyForecast() {
         return cloudy;
       case 'Thunderstorm':
         return thunder;
+      case 'Atmosphere':
+        return mist;
       default:
-        return clearSky;    
+        return clearSky;  
     }
   }
   return (
@@ -70,7 +72,7 @@ function DailyForecast() {
                       </p>
                       <p>{getIcon()}</p>
                       <p className='mt-4'>{kelvinToCelsius(forecast.main.temp)}°C</p>
- 
+                      
                   </CarouselItem>
                 
                     )

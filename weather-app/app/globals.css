@@ -87,4 +87,16 @@
      );
   }
 
+  .temperature{
+   background-image: linear-gradient(
+    to right,
+    #009EC9 0%,
+    #7BA09F 20%,
+    #C89F66,
+    #F79031,
+    #F15426
+
+   );
+  }
+
   

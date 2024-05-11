@@ -21,7 +21,10 @@ import {
   SunDim,
   CloudLightning,
   ThumbsUp,
-  ThumbsDown 
+  ThumbsDown,
+  Sun,
+  CloudFog 
+
 
 } from "lucide-react";
 
@@ -32,7 +35,7 @@ export const searchIcon = <Search />;
 export const drizzleIcon = <CloudDrizzle size={25} />;
 export const rain = <CloudRain size={30} />;
 export const snow = <Snowflake size={30} />;
-export const clearSky = <CloudSun size={30} />;
+export const clearSky = <Sun size={30} />;
 export const cloudy = <Cloudy size={30} />;
 export const navigation = <Navigation size={15} />;
 export const thermo = <ThermometerSun size={15} />;
@@ -49,4 +52,7 @@ export const sun = <SunDim size={15} />;
 export const thunder = <CloudLightning size={15}/>
 export const good = <ThumbsUp size={17}/>
 export const bad = <ThumbsDown  size={17}/>
+export const cloudsSun =<CloudSun size={15}/>
+export const mist =<CloudFog  size={15}/>
+ 
 

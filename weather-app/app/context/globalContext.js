@@ -12,6 +12,7 @@ export const GlobalContextProvider = ({ children }) => {
   const [airQuality, setAirQuality] = useState({});
   const [fiveDayForecast, setFiveDayForecast] = useState({});
   const [uvIndex, setUvIndex] = useState({});
+  const [bigDayForecast, setBigDayForecast] = useState({});
 
   const fetchForecast = async (city) => {
     try {
@@ -50,11 +51,21 @@ export const GlobalContextProvider = ({ children }) => {
     }
   };
 
+  const fetchBigDayForecast = async () => {
+    try {
+      const res = await axios.get('api/bigdays');
+      setBigDayForecast(res.data);
+    } catch (error) {
+      console.log('Error fetching big day forecast data', error.message);
+    }
+  };
+
   useEffect(() => {
     fetchForecast();
     fetchAirQuality();
     fetchFiveDayData();
     fetchUvIndex();
+    fetchBigDayForecast();
   }, []);
   return (
     <GlobalContext.Provider
@@ -63,6 +74,7 @@ export const GlobalContextProvider = ({ children }) => {
         airQuality,
         fiveDayForecast,
         uvIndex,
+        bigDayForecast,
       }}>
       <GlobalContextUpdate.Provider>{children}</GlobalContextUpdate.Provider>
     </GlobalContext.Provider>

@@ -24,7 +24,7 @@ function AirPollution() {
   }
 
   const airQualityIndex =  airQuality.list[0].main.aqi * 10;
-  console.log(airQualityIndex);
+
   
 
   

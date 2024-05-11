@@ -6,9 +6,11 @@ import { Skeleton } from '@/components/ui/skeleton';
 import React from 'react'
 
 function Population() {
-  const {fiveDayForecast } = useGlobalContext();
-  const {city}  =fiveDayForecast;
-  if(!fiveDayForecast|| !city){
+  const {forecast} = useGlobalContext();
+  console.log( forecast);
+  
+  
+  if(!forecast){
     return <Skeleton className='h-[12rem] w-full'/>
   }
   return (
@@ -18,7 +20,7 @@ function Population() {
         <h2 className='flex items-center gap-2 font-medium'>
         {people} Population
         </h2>
-        <p>{formatNumber(city.population)}</p>
+        <p></p>
       </div>
       
      

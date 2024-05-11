@@ -77,7 +77,7 @@ function Temperature() {
         <p className='flex items-center gap-2'>
           <span>L: {minTemp}°</span>
           <span>H: {maxTemp}°</span>
-          <span>Feel like:</span>
+          
         </p>
         
         </div>
