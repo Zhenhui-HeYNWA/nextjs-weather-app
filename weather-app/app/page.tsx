@@ -8,6 +8,8 @@ import UV from "./Components/UV/UV";
 import Population from "./Components/Population/Population";
 import FeelsLike from "./Components/FeelsLike/FeelsLike";
 import Humidity from "./Components/Humidity/Humidity";
+import Visibility from "./Components/Visibility/Visibility";
+import Pressure from "./Components/Pressure/Pressure";
 export default function Home() {
   return (
     <main className="mx-[1rem] lg:mx-[2rem] xl:mx-[6rem] 2xl:mx-[16rem]
@@ -27,7 +29,9 @@ export default function Home() {
             <Population/>
             <FeelsLike/>
             <Humidity/>
-  
+            <Visibility/>
+            <Pressure/>
+   
              </div>
         </div>
       </div>

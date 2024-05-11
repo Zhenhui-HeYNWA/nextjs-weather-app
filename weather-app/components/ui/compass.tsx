@@ -12,7 +12,7 @@ export default function Compass({deg }: CompassProps) {
   
   return (
     <>
-      <div className="relative -mt-5 flex h-[10rem] w-[10rem] items-center justify-center md:-mt-5 md:h-[9rem] md:w-[9rem]">
+      <div className="relative -mt-5 flex h-[18rem] w-[10rem] items-center justify-center md:-mt-5 md:h-[9rem] md:w-[9rem]">
         <div className="absolute text-sm font-semibold">
           {getWindDirection(deg)}
         </div>

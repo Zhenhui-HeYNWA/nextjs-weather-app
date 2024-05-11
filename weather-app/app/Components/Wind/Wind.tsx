@@ -34,14 +34,13 @@ function Wind() {
   }
   
   return (
-    <div className='pt-6 pb-5 px-4 h-[12rem] border rounded-lg flex flex-col gap-3
-    dark:bg-dark-grey shadow-sm dark:shadow-none'>
+    <div  className="pt-4 pb-5 px-4 h-[12rem] border rounded-lg flex flex-col gap-5 dark:bg-dark-grey shadow-sm dark:shadow-none">
       <div className='flex flex-row justify-between items-center text-center'>
       <h2 className='flex  items-center text-center gap-2 font-medium'>{wind} Wind</h2>
          <p className='text-lg font-medium'>{windSpeed} m/s</p>
          </div>
       <div className='compass relative flex  justify-center'>
-      <div className="image relative">
+      <div className="image relative mb-2">
           {Compass(CompassProps)}
         </div>
     

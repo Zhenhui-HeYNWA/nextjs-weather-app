@@ -4,7 +4,7 @@ import { useGlobalContext } from '@/app/context/globalContext'
 import { sun } from '@/app/utils/Icons';
 import { Skeleton } from '@/components/ui/skeleton';
 import React from 'react'
-import { Progress } from '../UvProgress/UvProgress';
+import { Progress } from './UvProgress/UvProgress';
 
 
 function UV() {
@@ -46,7 +46,8 @@ function UV() {
    const marginLeftPercentage = (uvIndexMax/14)*100;
    
   return (
-    <div className="pt-6 pb-5 px-4 h-[12rem] border rounded-lg flex flex-col gap-5 dark:bg-dark-grey shadow-sm dark:shadow-none">
+    <div className='pt-4 pb-5 px-4 h-[12rem] border rounded-lg flex flex-col gap-5
+    dark:bg-dark-grey shadow-sm dark:shadow-none'>
     <div className="top">
       <h2 className="flex items-center gap-2 font-medium">{sun} Uv Index</h2>
       <div className="pt-4 flex flex-col gap-1">
@@ -65,7 +66,7 @@ function UV() {
       </div>
     </div>
 
-    <p className="text-sm">{uvIndexCategory(uvIndexMax).description} </p>
+    <p >{uvIndexCategory(uvIndexMax).description} </p>
   </div>
   )
 }
