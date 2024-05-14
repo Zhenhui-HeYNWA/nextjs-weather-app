@@ -39,7 +39,7 @@ function DaylightChart() {
   const data = [
     { time: '00:00', value: -1, name: "Midnight" }, // 代表午夜
     { time: sunriseTime, value: 0, name: "Sunrise" }, // 假设日出时间
-    { time: midDay, value: 2, name: "MidDay" }, // 中午时间
+    {time: midDay, value: 2, name: "MidDay" }, // 中午时间
     { time: sunsetTime, value: 0, name: "Sunset" }, // 假设日落时间
     { time: '23:59', value: -1, name: "Midnight" } // 第二天午夜
   ];

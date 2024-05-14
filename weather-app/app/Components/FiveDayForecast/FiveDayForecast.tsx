@@ -12,7 +12,8 @@ function FiveDayForecast() {
   
 
   const {city,list} = fiveDayForecast;
- 
+
+  
   
   
   
@@ -96,7 +97,7 @@ function FiveDayForecast() {
   }
   
 ;  return (
-    <div className='pt-4 pb-5 px-4 flex-1 border rounded-lg flex flex-col justify-between
+    <div className='pt-4 pb-4 px-4 flex-1 border rounded-lg flex flex-col justify-between
     dark:bg-dark-grey shadow-sm dark:shadow-none '>
       <div className='top'>
         <h2 className='flex items-center gap-2 font-medium '>
@@ -105,7 +106,7 @@ function FiveDayForecast() {
         <div className='forecast-list pt-1 '>
           {dailyForecast.map((forecast,i)=>{
             return (
-            <div key={i} className='daily-forecast py-4  mt-3 flex flex-col justify-evenly
+            <div key={i} className='daily-forecast py-2  mt-3 flex flex-col justify-evenly
             border-t-2 '>
               <div className='flex justify-between items-center py-2'>
               <p className='text-xl min-w-[3.5rem]'>{forecast.day}</p>

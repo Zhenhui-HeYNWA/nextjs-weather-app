@@ -7,7 +7,7 @@ import React from 'react'
 
 function Population() {
   const {forecast} = useGlobalContext();
-  console.log( forecast);
+
   
   
   if(!forecast){

@@ -1,17 +1,30 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { useGlobalContext } from '@/app/context/globalContext'
+import { useGlobalContext, useGlobalContextUpdate } from '@/app/context/globalContext'
 import { kelvinToCelsius } from '@/app/utils/misc';
 import { clearSky, cloudy, drizzleIcon, navigation, rain, snow, thunder } from '@/app/utils/Icons';
 import moment from 'moment';
 
 function Temperature() {
   const {forecast} = useGlobalContext();
+  const { setActiveCityCoords } = useGlobalContextUpdate();
 
   // state for current time 
   const [localTime , setLocalTime] = useState<string>('');
   const [currentDay, setCurrentDay] = useState<string>('');
-   
+
+
+
+  const handleClickLocation =()=>{
+    navigator.geolocation.getCurrentPosition(position => {
+      const {latitude, longitude} = position.coords;
+    
+      setActiveCityCoords([latitude,longitude])
+      
+    })
+     
+    
+  }   
     
   // useEffect hook to get current time update
   useEffect(()=>{
@@ -56,7 +69,7 @@ function Temperature() {
   }
 
   return (
-    <div className='pt-6 pb-5 px-4 border rounded-lg flex flex-col 
+    <div className='pt-4 pb-5 px-4 border rounded-lg flex flex-col 
     justify-between dark:bg-dark-grey shadow-sm dark:shadow-none'> 
      <p className='flex justify-between items-center'>
       <span className=' font-medium'>{currentDay}</span>
@@ -64,16 +77,16 @@ function Temperature() {
      </p>
      <p className=' pt-2 font-bold flex gap-1'>
       <span>{name}</span>
-      <span>{navigation}</span>
+      <span onClick={handleClickLocation}>{navigation}</span>
       </p>
       <p className=' py-10 text-9xl font-bold self-center'>{temp}°</p>
 
       <div>
         <div>
           <span>{getIcon()}</span>
-          <p className='pt-2 capitalize text-lg font-medium'>{description}</p>
+          <p className='pt-2 capitalize text-lg font-medium '>{description}</p>
         </div>
-        <div className=' justify-between'>
+        <div className=' mt-2 justify-between'>
         <p className='flex items-center gap-2'>
           <span>L: {minTemp}°</span>
           <span>H: {maxTemp}°</span>

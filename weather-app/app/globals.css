@@ -33,9 +33,18 @@
       --ring: 240 10% 3.9%;
 
       --radius: 0.5rem;
+      --leaflet-tile-filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
     }
 
     .dark {
+
+      .leaflet-tile {
+        filter: var(--leaflet-tile-filter, none);
+    }
+
+    .leaflet-container {
+        background: #303030;
+    }
       --background: 240 10% 3.9%;
       --foreground: 0 0% 98%;
 
@@ -64,6 +73,7 @@
       --input: 240 3.7% 15.9%;
       --ring: 240 4.9% 83.9%;
     }
+    
   }
 
   @layer base {
@@ -99,4 +109,45 @@
    );
   }
 
+  @media screen and (max-width:581px){
+    .btn-group{
+      position: fixed;
+      bottom: 2%;
+      right: 1rem;
+      z-index: 1000;
+      
+    }
+
+    .btn-group button{
+      box-shadow: 2px 3px 0.3rem 0.3rem rgba(0,0,0,0.1) ;
+    }
+    .search-container{
+      width: 100%;
+    }
+    .search-btn{
+      width: 100%;
+    }
+    .search-btn button {
+      width: 100%;
+    }
+    .mapbox-con{
+      flex-direction: column;
+    }
+
+    .mapbox-con > div:first-child{
+      height: 24rem;
+      flex:initial;
+    }
+  }
   
+  @media  screen and (max-width:1010px) {
+    .mapbox-con{
+      flex-direction: column;
+    }
+    .mapbox-con > div:first-child{
+      height: 24rem;
+      flex:initial;
+    }
+  }
+
+ 

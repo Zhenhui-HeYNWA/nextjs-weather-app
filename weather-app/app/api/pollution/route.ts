@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import axios from "axios";
-export async function GET(res:NextRequest){
+export async function GET(req:NextRequest){
 try {
   const apiKey  = process.env.OPENWEATHERMAP_API_KEY;
-  const lat = -37.814
-  const lon = 144.9633
+  const searchParams = req.nextUrl.searchParams;
+  const lat = searchParams.get('lat')
+  const lon = searchParams.get('lon')
   
   const url = (`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`);
   const res = await axios.get(url);

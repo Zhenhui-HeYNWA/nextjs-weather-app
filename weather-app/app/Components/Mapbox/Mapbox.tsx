@@ -4,7 +4,16 @@ import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useGlobalContext } from "@/app/context/globalContext";
 
-function FlyToActiveCity({ activeCityCords  }) {
+
+interface ActiveCityCoords{
+  lat:number;
+  lon:number;
+}
+interface FlyToActiveCityProps{
+  activeCityCords:ActiveCityCoords | null;
+}
+
+function FlyToActiveCity({ activeCityCords }:FlyToActiveCityProps) {
   const map = useMap();
 
   useEffect(() => {
@@ -49,7 +58,7 @@ function Map() {
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright"></a> contributors'
         />
 
         <FlyToActiveCity activeCityCords={activeCityCords} />
