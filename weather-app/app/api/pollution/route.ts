@@ -2,13 +2,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import axios from 'axios';
 
 export async function GET(req: NextRequest) {
+  const url = new URL(req.url);
   try {
     const apiKey = process.env.OPENWEATHERMAP_API_KEY;
     if (!apiKey) {
       return new Response('API key is not set', { status: 500 });
     }
 
-    const url = new URL(req.url);
     const lat = url.searchParams.get('lat');
     const lon = url.searchParams.get('lon');
 
