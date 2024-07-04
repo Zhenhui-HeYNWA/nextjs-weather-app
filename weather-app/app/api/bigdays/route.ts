@@ -1,29 +1,19 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextRequest, NextResponse } from 'next/server';
 import axios from 'axios';
-
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export async function GET(req: NextRequest) {
   try {
     const apiKey = process.env.OPENWEATHERMAP_API_KEY;
-    if (!apiKey) {
-      return res.status(500).json({ error: 'API key is not set' });
-    }
+    const searchParams = req.nextUrl.searchParams;
+    const lat = searchParams.get('lat');
+    const lon = searchParams.get('lon');
 
-    const { lat, lon } = req.query;
-    if (!lat || !lon) {
-      return res
-        .status(400)
-        .json({ error: 'Latitude and longitude are required' });
-    }
+    const url = `api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&cnt=${5}&appid=${apiKey}`;
 
-    const url = `http://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&cnt=5&appid=${apiKey}`;
-    const response = await axios.get(url);
+    const res = await axios(url);
 
-    return res.status(200).json(response.data);
+    return NextResponse.json(res.data);
   } catch (error) {
-    console.error('Error in getting daily data:', error);
-    return res.status(500).json({ error: 'Error in getting daily data' });
+    console.log('Error in getting daily data');
+    return new Response('Error in getting daily data', { status: 500 });
   }
 }
