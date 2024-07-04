@@ -1,6 +1,6 @@
 'use client';
-import { useWindowContext } from '@/app/Providers/WindowContextProvider';
 import { useEffect } from 'react';
+import { useWindowContext } from '@/app/Providers/WindowContextProvider';
 import Navbar from './Components/Navbar';
 import Temperature from './Components/Temperature/Temperature';
 import AirPollution from './Components/AirPollution/AirPollution';
@@ -22,6 +22,10 @@ export default function Home() {
   const { setActiveCityCoords } = useGlobalContextUpdate();
   const { width, height, isMobile } = useWindowContext();
 
+  const getClickedCityCords = (lat: number, lon: number) => {
+    setActiveCityCoords([lat, lon]);
+  };
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.scrollTo({
@@ -30,11 +34,6 @@ export default function Home() {
       });
     }
   }, [setActiveCityCoords]);
-
-  const getClickedCityCords = (lat: number, lon: number) => {
-    setActiveCityCoords([lat, lon]);
-  };
-
   return (
     <main className='mx-[1rem] lg:mx-[2rem] xl:mx-[6rem] 2xl:mx-[16rem] m-auto'>
       <Navbar />
