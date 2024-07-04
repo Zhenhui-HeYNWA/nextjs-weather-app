@@ -1,4 +1,5 @@
 'use client';
+import { useEffect } from 'react';
 import Navbar from './Components/Navbar';
 import Temperature from './Components/Temperature/Temperature';
 import AirPollution from './Components/AirPollution/AirPollution';
@@ -21,6 +22,12 @@ export default function Home() {
 
   const getClickedCityCords = (lat: number, lon: number) => {
     setActiveCityCoords([lat, lon]);
+    if (typeof window !== 'undefined') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }
   };
 
   return (
