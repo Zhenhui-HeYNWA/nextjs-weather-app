@@ -43,7 +43,7 @@ function Wind() {
   };
 
   return (
-    <div className=' p-4 h-[12rem] border rounded-lg flex flex-col gap-5 dark:bg-dark-grey shadow-sm dark:shadow-none'>
+    <div className=' p-4 h-[12rem] border rounded-lg flex flex-col gap-5 dark:bg-dark-grey shadow-sm dark:shadow-none hover:scale-105 transition-all ease-in-out hover:shadow-xl hover:bg-gray-50'>
       <div className='flex flex-row justify-between items-center text-center'>
         <h2 className='flex items-center text-center gap-2 font-medium'>
           {wind} Wind

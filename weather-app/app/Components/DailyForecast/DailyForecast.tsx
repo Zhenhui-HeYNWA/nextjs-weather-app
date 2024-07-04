@@ -81,7 +81,7 @@ function DailyForecast() {
   return (
     <div
       className='pt-4 px-4 h-[12rem] border rounded-lg flex flex-col
-    gap-8 dark:bg-dark-grey shadow-sm dark:shadow-none col-span-full sm:col-span-2 md:col-span-2 xl:col-span-2'>
+    gap-8 dark:bg-dark-grey shadow-sm dark:shadow-none col-span-full sm:col-span-2 md:col-span-2 xl:col-span-2 hover:scale-105 transition-all ease-in-out hover:shadow-xl hover:bg-gray-50'>
       <div className='h-full flex gap-10 overflow-hidden'>
         {dailyForecast.length < 1 ? (
           <div className='flex justify-center items-center '>
