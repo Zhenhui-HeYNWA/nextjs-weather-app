@@ -1,5 +1,5 @@
 'use client';
-import { useEffect } from 'react';
+import { useWindowContext } from '../path-to-your-context-file'; // 更新为你的实际路径
 import Navbar from './Components/Navbar';
 import Temperature from './Components/Temperature/Temperature';
 import AirPollution from './Components/AirPollution/AirPollution';
@@ -19,6 +19,7 @@ import { useGlobalContextUpdate } from './context/globalContext';
 
 export default function Home() {
   const { setActiveCityCoords } = useGlobalContextUpdate();
+  const { width, height, isMobile } = useWindowContext();
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
