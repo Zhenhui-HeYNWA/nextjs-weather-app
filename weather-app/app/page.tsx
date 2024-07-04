@@ -1,5 +1,6 @@
 'use client';
-import { useWindowContext } from '../path-to-your-context-file'; // 更新为你的实际路径
+import { useWindowContext } from '@/app/Providers/WindowContextProvider';
+import { useEffect } from 'react';
 import Navbar from './Components/Navbar';
 import Temperature from './Components/Temperature/Temperature';
 import AirPollution from './Components/AirPollution/AirPollution';
