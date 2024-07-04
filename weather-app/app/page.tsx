@@ -12,10 +12,13 @@ import FeelsLike from './Components/FeelsLike/FeelsLike';
 import Humidity from './Components/Humidity/Humidity';
 import Visibility from './Components/Visibility/Visibility';
 import Pressure from './Components/Pressure/Pressure';
-import Map from './Components/Mapbox/Mapbox';
 import defaultStates from './utils/defaultStates';
 import FiveDayForecast from './Components/FiveDayForecast/FiveDayForecast';
 import { useGlobalContextUpdate } from './context/globalContext';
+import dynamic from 'next/dynamic';
+
+// Dynamically import the Map component
+const Map = dynamic(() => import('./Components/Mapbox/Mapbox'), { ssr: false });
 
 export default function Home() {
   const { setActiveCityCoords } = useGlobalContextUpdate();

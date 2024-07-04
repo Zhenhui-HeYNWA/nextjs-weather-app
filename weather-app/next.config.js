@@ -1,9 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  reactStrictMode: true, // 建议保持严格模式以捕捉潜在问题
+  reactStrictMode: true,
   experimental: {
     appDir: true,
   },

@@ -8,6 +8,7 @@ interface ActiveCityCoords {
   lat: number;
   lon: number;
 }
+
 interface FlyToActiveCityProps {
   activeCityCords: ActiveCityCoords | null;
 }
@@ -17,16 +18,9 @@ function FlyToActiveCity({ activeCityCords }: FlyToActiveCityProps) {
 
   useEffect(() => {
     if (activeCityCords) {
-      const zoomLev = 13;
-      const flyToOptions = {
+      map.flyTo([activeCityCords.lat, activeCityCords.lon], 13, {
         duration: 1.5,
-      };
-
-      map.flyTo(
-        [activeCityCords.lat, activeCityCords.lon],
-        zoomLev,
-        flyToOptions
-      );
+      });
     }
   }, [activeCityCords, map]);
 
@@ -34,8 +28,7 @@ function FlyToActiveCity({ activeCityCords }: FlyToActiveCityProps) {
 }
 
 function Map() {
-  const { forecast } = useGlobalContext(); // Your coordinates
-
+  const { forecast } = useGlobalContext();
   const activeCityCords = forecast?.coord;
 
   if (!forecast || !forecast.coord || !activeCityCords) {
@@ -47,7 +40,7 @@ function Map() {
   }
 
   return (
-    <div className='flex-1 basis-[50%]  border rounded-lg hover:scale-105 transition-all ease-in-out hover:shadow-xl hover:bg-gray-50'>
+    <div className='flex-1 basis-[50%] border rounded-lg hover:scale-105 transition-all ease-in-out hover:shadow-xl hover:bg-gray-50'>
       <MapContainer
         center={[activeCityCords.lat, activeCityCords.lon]}
         zoom={13}
@@ -58,7 +51,6 @@ function Map() {
           url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright"></a> contributors'
         />
-
         <FlyToActiveCity activeCityCords={activeCityCords} />
       </MapContainer>
     </div>
