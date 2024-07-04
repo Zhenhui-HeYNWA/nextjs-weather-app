@@ -1,5 +1,5 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from './Components/Navbar';
 import Temperature from './Components/Temperature/Temperature';
 import AirPollution from './Components/AirPollution/AirPollution';
@@ -19,16 +19,22 @@ import { useGlobalContextUpdate } from './context/globalContext';
 
 export default function Home() {
   const { setActiveCityCoords } = useGlobalContextUpdate();
+  const [shouldScroll, setShouldScroll] = useState(false);
 
   const getClickedCityCords = (lat: number, lon: number) => {
     setActiveCityCoords([lat, lon]);
-    if (typeof window !== 'undefined') {
+    setShouldScroll(true);
+  };
+
+  useEffect(() => {
+    if (shouldScroll) {
       window.scrollTo({
         top: 0,
         behavior: 'smooth',
       });
+      setShouldScroll(false);
     }
-  };
+  }, [shouldScroll]);
 
   return (
     <main className='mx-[1rem] lg:mx-[2rem] xl:mx-[6rem] 2xl:mx-[16rem] m-auto'>
