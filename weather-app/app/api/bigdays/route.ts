@@ -1,19 +1,29 @@
 import { NextRequest, NextResponse } from 'next/server';
 import axios from 'axios';
+
 export async function GET(req: NextRequest) {
   try {
     const apiKey = process.env.OPENWEATHERMAP_API_KEY;
+    if (!apiKey) {
+      return new Response('API key is not set', { status: 500 });
+    }
+
     const searchParams = req.nextUrl.searchParams;
     const lat = searchParams.get('lat');
     const lon = searchParams.get('lon');
 
-    const url = `api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&cnt=${5}&appid=${apiKey}`;
+    if (!lat || !lon) {
+      return new Response('Latitude and longitude are required', {
+        status: 400,
+      });
+    }
 
-    const res = await axios(url);
+    const url = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&cnt=5&appid=${apiKey}`;
+    const res = await axios.get(url);
 
     return NextResponse.json(res.data);
   } catch (error) {
-    console.log('Error in getting daily data');
+    console.error('Error in getting daily data:', error);
     return new Response('Error in getting daily data', { status: 500 });
   }
 }

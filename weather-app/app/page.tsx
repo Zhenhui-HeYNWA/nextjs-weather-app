@@ -22,6 +22,7 @@ export default function Home() {
   const getClickedCityCords = (lat: number, lon: number) => {
     setActiveCityCoords([lat, lon]);
   };
+
   return (
     <main className='mx-[1rem] lg:mx-[2rem] xl:mx-[6rem] 2xl:mx-[16rem] m-auto'>
       <Navbar />
@@ -50,18 +51,14 @@ export default function Home() {
                 Top Large Cities
               </h2>
               <div className='flex flex-col gap-4'>
-                {defaultStates.map((state, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className='border rounded-lg cursor-pointer dark:bg-dark-grey shadow-sm dark:shadow-none hover:scale-105 transition-all ease-in-out hover:shadow-xl hover:bg-gray-50'
-                      onClick={() => {
-                        getClickedCityCords(state.lat, state.lon);
-                      }}>
-                      <p className='px-6 py-4'>{state.name}</p>
-                    </div>
-                  );
-                })}
+                {defaultStates.map((state, index) => (
+                  <div
+                    key={index}
+                    className='border rounded-lg cursor-pointer dark:bg-dark-grey shadow-sm dark:shadow-none hover:scale-105 transition-all ease-in-out hover:shadow-xl hover:bg-gray-50'
+                    onClick={() => getClickedCityCords(state.lat, state.lon)}>
+                    <p className='px-6 py-4'>{state.name}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
