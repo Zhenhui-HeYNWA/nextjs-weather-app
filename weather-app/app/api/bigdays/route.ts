@@ -13,9 +13,10 @@ export async function GET(req: NextRequest) {
     const lon = searchParams.get('lon');
 
     if (!lat || !lon) {
-      return new Response('Latitude and longitude are required', {
-        status: 400,
-      });
+      return NextResponse.json(
+        { error: 'Missing parameters' },
+        { status: 400 }
+      );
     }
 
     const url = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&cnt=5&appid=${apiKey}`;
