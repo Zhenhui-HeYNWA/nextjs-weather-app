@@ -1,6 +1,5 @@
 'use client';
 import { useEffect } from 'react';
-import { useWindowContext } from '@/app/Providers/WindowContextProvider';
 import Navbar from './Components/Navbar';
 import Temperature from './Components/Temperature/Temperature';
 import AirPollution from './Components/AirPollution/AirPollution';
@@ -20,30 +19,40 @@ import { useGlobalContextUpdate } from './context/globalContext';
 
 export default function Home() {
   const { setActiveCityCoords } = useGlobalContextUpdate();
-  const { width, height, isMobile } = useWindowContext();
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const handleScrollToTop = () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+      };
+      setActiveCityCoords([0, 0]);
+      handleScrollToTop();
+    }
+  }, [setActiveCityCoords]);
 
   const getClickedCityCords = (lat: number, lon: number) => {
     setActiveCityCoords([lat, lon]);
-  };
-
-  useEffect(() => {
     if (typeof window !== 'undefined') {
       window.scrollTo({
         top: 0,
         behavior: 'smooth',
       });
     }
-  }, [setActiveCityCoords]);
+  };
+
   return (
     <main className='mx-[1rem] lg:mx-[2rem] xl:mx-[6rem] 2xl:mx-[16rem] m-auto'>
       <Navbar />
       <div className='pb-4 flex flex-col gap-4 md:flex-row'>
-        <div className='flex flex-col gap-4 w-full  md:w-[35rem]'>
+        <div className='flex flex-col gap-4 w-full md:w-[35rem]'>
           <Temperature />
           <FiveDayForecast />
         </div>
         <div className='flex flex-col w-full'>
-          <div className='instruments flex flex-col gap-4 h-full col-span-full  sm:flex sm:flex-col sm:gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+          <div className='instruments flex flex-col gap-4 h-full col-span-full sm:flex sm:flex-col sm:gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
             <AirPollution />
             <Sunset />
             <Wind />
