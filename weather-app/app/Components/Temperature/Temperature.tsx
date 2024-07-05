@@ -77,7 +77,7 @@ function Temperature() {
   return (
     <div
       className='pt-4 pb-5 px-4 border rounded-lg flex flex-col 
-    justify-between dark:bg-dark-grey shadow-sm dark:shadow-none hover:scale-105 transition-all ease-in-out hover:shadow-xl hover:bg-gray-50'>
+    justify-between dark:bg-dark-grey shadow-sm dark:shadow-none md:hover:scale-105 transition-all ease-in-out hover:shadow-xl hover:bg-gray-50'>
       <p className='flex justify-between items-center'>
         <span className=' font-medium'>{currentDay}</span>
         <span className=' font-medium'>{localTime}</span>

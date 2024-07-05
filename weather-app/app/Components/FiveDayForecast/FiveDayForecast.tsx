@@ -100,7 +100,7 @@ function FiveDayForecast() {
   return (
     <div
       className='pt-4 pb-4 px-4 flex-1 border rounded-lg flex flex-col justify-between
-    dark:bg-dark-grey shadow-sm dark:shadow-none hover:scale-105 transition-all ease-in-out hover:shadow-xl hover:bg-gray-50'>
+    dark:bg-dark-grey shadow-sm dark:shadow-none md:hover:scale-105 transition-all ease-in-out hover:shadow-xl hover:bg-gray-50'>
       <div className='top'>
         <h2 className='flex items-center gap-2 font-medium '>
           {calender} 5-Day Forecast for {city.name}

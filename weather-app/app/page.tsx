@@ -77,7 +77,7 @@ export default function Home() {
                 {defaultStates.map((state, index) => (
                   <div
                     key={index}
-                    className='border rounded-lg cursor-pointer dark:bg-dark-grey shadow-sm dark:shadow-none hover:scale-105 transition-all ease-in-out hover:shadow-xl hover:bg-gray-50'
+                    className='border rounded-lg cursor-pointer dark:bg-dark-grey shadow-sm dark:shadow-none md:hover:scale-105 transition-all ease-in-out hover:shadow-xl hover:bg-gray-50'
                     onClick={() => getClickedCityCords(state.lat, state.lon)}>
                     <p className='px-6 py-4'>{state.name}</p>
                   </div>

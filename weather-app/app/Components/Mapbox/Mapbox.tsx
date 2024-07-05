@@ -40,7 +40,7 @@ function Map() {
   }
 
   return (
-    <div className='flex-1 basis-[50%] border rounded-lg hover:scale-105 transition-all ease-in-out hover:shadow-xl hover:bg-gray-50'>
+    <div className='flex-1 basis-[50%] border rounded-lg md:hover:scale-105 transition-all ease-in-out hover:shadow-xl hover:bg-gray-50'>
       <MapContainer
         center={[activeCityCords.lat, activeCityCords.lon]}
         zoom={13}
