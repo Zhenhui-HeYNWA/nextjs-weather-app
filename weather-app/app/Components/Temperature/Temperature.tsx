@@ -84,7 +84,9 @@ function Temperature() {
       </p>
       <p className=' pt-2 font-bold flex gap-1'>
         <span>{name}</span>
-        <span onClick={handleClickLocation}>{navigation}</span>
+        <span onClick={handleClickLocation} className=' cursor-pointer'>
+          {navigation}
+        </span>
       </p>
       <p className=' py-10 text-9xl font-bold self-center'>{temp}°</p>
 
